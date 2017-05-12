@@ -7,6 +7,8 @@ package lab4_iliana_leonardo;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -90,13 +92,7 @@ public class Lab4_Iliana_Leonardo {
                             for (Producto p : productos) {
                                 System.out.println(productos);
                             }
-                            System.out.println("Ingrese una posicion");
-                            int posicion4 = sc.nextInt();
-                            if (posicion4 >= productos.size()) {
-                                System.out.println("Posicion incorrecta");
-                            }else{
-                                almacen.add(new AlmacenPlataforma(productos.get(posicion3), tamaño, altura));
-                            }
+                            
                     }
                     break;
                 case 2:
@@ -131,13 +127,20 @@ public class Lab4_Iliana_Leonardo {
         String nombre = sc.next();
         boolean pasar = true;
         String id = "";
+        
+        
+        
         while (pasar) {
             try {
+                sc = new Scanner (System.in);
                 System.out.println("Cual es el ID");
                 id = sc.next();
+                ValidarID(id);////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 pasar = false;
-            } catch (Exception e) {
+            } catch (Excepcion e) {
                 pasar = true;
+            } catch (Exception ex) {
+                Logger.getLogger(Lab4_Iliana_Leonardo.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -145,10 +148,13 @@ public class Lab4_Iliana_Leonardo {
         int edad = 0;
         while (pasar2) {
             try {
+                sc = new Scanner (System.in);
                 System.out.println("Cual es la edad");
                 edad = sc.nextInt();
+               validarEdad(edad);
+                       
                 pasar2 = false;
-            } catch (Exception e) {
+            } catch (Excepcion e) {
                 pasar = true;
             }
         }
@@ -240,7 +246,15 @@ public class Lab4_Iliana_Leonardo {
             throw new Excepcion("Debe ser mayor a 18");
         }
     }
-
+public static void ValidarID (String id)throws Exception{
+    String numero = id.substring(0, 4);
+    if (!"0801".equals(numero)) {
+        throw new Exception("El ID ingresado no es de Francisco Morazan");
+    }else{
+        
+    }
+    
+}
     public static void validarID(String ID) throws Exception {
         String numeros = "";
         for (int i = 0; i < 4; i++) {
