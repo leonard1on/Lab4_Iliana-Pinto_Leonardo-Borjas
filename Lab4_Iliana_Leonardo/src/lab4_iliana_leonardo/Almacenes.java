@@ -10,5 +10,9 @@ package lab4_iliana_leonardo;
  * @author iliana
  */
 public class Almacenes {
+    private Producto p;
+    private double tamaño;
+    private double altura;
+    
     
 }
