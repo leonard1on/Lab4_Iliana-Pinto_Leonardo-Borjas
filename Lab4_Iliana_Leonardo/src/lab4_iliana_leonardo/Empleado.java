@@ -5,10 +5,6 @@
  */
 package lab4_iliana_leonardo;
 
-/**
- *
- * @author Leonardo Borjas
- */
 public class Empleado extends Persona{
     private double sueldo;
 
