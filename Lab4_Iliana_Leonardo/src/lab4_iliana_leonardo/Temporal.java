@@ -13,7 +13,6 @@ import java.util.Scanner;
  * @author iliana
  */
 public class Temporal {
-
     static Scanner sc = new Scanner(System.in);
 
     public void metodo() {
@@ -132,6 +131,7 @@ public class Temporal {
         if (espacio<empleados.size()) {
             
         }
+        return empleados;
     }
-
+    
 }
