@@ -63,6 +63,11 @@ public class Almacenes {
     public void setC(ArrayList<Cliente> c) {
         this.c = c;
     }
+
+    @Override
+    public String toString() {
+        return "Almacenes{" + "p=" + p + ", tama\u00f1o=" + tamaño + ", altura=" + altura + ", e=" + e + ", c=" + c + '}';
+    }
     
     
     
