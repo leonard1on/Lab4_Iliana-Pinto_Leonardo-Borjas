@@ -27,7 +27,9 @@ public class AlmaceneTemporal extends Almacenes{
         this.c = c;
     }
 
-    
+    public ArrayList<Producto> getPro() {
+        return pro;
+    }
     
 
     public void setPro(ArrayList<Producto> pro) {
