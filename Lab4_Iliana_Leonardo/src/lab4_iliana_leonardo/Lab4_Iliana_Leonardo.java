@@ -23,6 +23,7 @@ public class Lab4_Iliana_Leonardo {
         ArrayList<Persona> clientes = new ArrayList();
         ArrayList<Persona> empleados = new ArrayList();
         ArrayList<Producto> productos = new ArrayList();
+        ArrayList<Almacenes> almacen = new ArrayList();
         do {
             System.out.println("1. Agregar almacen");
             System.out.println("2. Agregar persona");
@@ -42,24 +43,65 @@ public class Lab4_Iliana_Leonardo {
                     int opcion2 = sc.nextInt();
                     switch (opcion2) {
                         case 1:
+
                             System.out.println("Ingrese numero de planta:");
                             int numeroPlanta = sc.nextInt();
+                            for (Producto p : productos) {
+                                System.out.println(productos);
+                            }
+                            System.out.println("Ingrese una posicion");
+                            int posicion = sc.nextInt();
+                            if (posicion >= productos.size()) {
+                                System.out.println("Posicion ingresada incorrecta");
+                            } else {
+                                almacen.add(new AlmacenPlanta(numeroPlanta, productos.get(posicion), tamaño, altura));
+                            }
+
                             break;
                         case 2:
                             System.out.println("Ingrese departamento:");
                             sc.nextLine();
                             String departamento = sc.nextLine();
+                            for (Producto p : productos) {
+                                System.out.println(productos);
+                            }
+                            System.out.println("Ingrese una posicion:");
+                            int posicion2 = sc.nextInt();
+                            if (posicion2 >= productos.size()) {
+                                System.out.println("Posicion incorrecta");
+                            }else{
+                                almacen.add(new AlmacenRegional(departamento, productos.get(posicion2), tamaño, altura));
+                            }
+                            
                             break;
                         case 3:
-                            System.out.println("");
+                            for (Producto p : productos) {
+                                System.out.println(productos);
+                            }
+                            System.out.println("Ingrese una posicion");
+                            int posicion3 = sc.nextInt();
+                            if (posicion3 >= productos.size()) {
+                                System.out.println("Posicion incorrecta");
+                            }else{
+                                almacen.add(new AlmacenPlataforma(productos.get(posicion3), tamaño, altura));
+                            }
                             break;
                         case 4:
-                            System.out.println("");
+                            for (Producto p : productos) {
+                                System.out.println(productos);
+                            }
+                            System.out.println("Ingrese una posicion");
+                            int posicion4 = sc.nextInt();
+                            if (posicion4 >= productos.size()) {
+                                System.out.println("Posicion incorrecta");
+                            }else{
+                                almacen.add(new AlmacenPlataforma(productos.get(posicion3), tamaño, altura));
+                            }
                     }
                     break;
                 case 2:
-                    Persona p= empleado_cliente(productos);
-                    
+                    Persona p = empleado_cliente(productos);
+
                     if (p instanceof Cliente) {
                         clientes.add(p);
                     }
@@ -69,7 +111,7 @@ public class Lab4_Iliana_Leonardo {
                     if (p instanceof Empleado_Carga) {
                         empleados.add(p);
                     }
-                    
+
                     break;
                 case 3:
                     productos.add(producto());
@@ -83,14 +125,34 @@ public class Lab4_Iliana_Leonardo {
 
     public static Persona empleado_cliente(ArrayList<Producto> productos) {
         int menu = 0;
-        char resp='s';
+        char resp = 's';
         System.out.println("Creacion de empleado\n"
                 + "Cual es el nombre del empleado");
         String nombre = sc.next();
-        System.out.println("Cual es el ID");
-        String id = sc.next();
-        System.out.println("Cual es la edad");
-        int edad = sc.nextInt();
+        boolean pasar = true;
+        String id = "";
+        while (pasar) {
+            try {
+                System.out.println("Cual es el ID");
+                id = sc.next();
+                pasar = false;
+            } catch (Exception e) {
+                pasar = true;
+            }
+        }
+
+        boolean pasar2 = true;
+        int edad = 0;
+        while (pasar2) {
+            try {
+                System.out.println("Cual es la edad");
+                edad = sc.nextInt();
+                pasar2 = false;
+            } catch (Exception e) {
+                pasar = true;
+            }
+        }
+
         System.out.println("Cual es la altura");
         double altura = sc.nextDouble();
         System.out.println("Cual es el peso");
@@ -109,45 +171,44 @@ public class Lab4_Iliana_Leonardo {
                     double dinero = sc.nextDouble();
                     System.out.println("En que fecha compro su primer producto?");
                     String fecha = sc.next();
-                    Cliente c=new Cliente(dinero,fecha,nombre,id,edad,altura,peso,residencia);
-                    
-                    do{
-                    for (Producto p : productos) {
-                        System.out.println(productos.indexOf(p)+" "+p);
-                    }
+                    Cliente c = new Cliente(dinero, fecha, nombre, id, edad, altura, peso, residencia);
+
+                    do {
+                        for (Producto p : productos) {
+                            System.out.println(productos.indexOf(p) + " " + p);
+                        }
                         System.out.println("Cual producto ha comprado?");
-                    int espacio=sc.nextInt();
-                        if (espacio<productos.size()) {
+                        int espacio = sc.nextInt();
+                        if (espacio < productos.size()) {
                             c.getProducto().add(productos.get(espacio));
                         }
                         System.out.println("Desea agregar otro producto? s/n");
-                        resp=sc.next().charAt(0);
-                    }while(resp!='n');
-                    
+                        resp = sc.next().charAt(0);
+                    } while (resp != 'n');
 
                     return c;
                 case 2:
-                    int resp2=0;
+                    int resp2 = 0;
                     System.out.println("Cual es el sueldo del empleado?");
-                    double sueldo=sc.nextDouble();
+                    double sueldo = sc.nextDouble();
                     do {
                         System.out.println("Que tipo de empleado desea agregar?\n"
                                 + "1. De Carga\n"
                                 + "2. De Seguridad");
-                        resp2=sc.nextInt();
-                        switch(resp2){
+                        resp2 = sc.nextInt();
+                        switch (resp2) {
                             case 1:
                                 System.out.println("Que dia trabaja el empleado de seguridad?");
-                                String dia=sc.next();
-                                return new Empleado_Seguridad(dia,sueldo, nombre, id, edad, altura, peso, residencia);
+                                String dia = sc.next();
+                                return new Empleado_Seguridad(dia, sueldo, nombre, id, edad, altura, peso, residencia);
                             case 2:
                                 System.out.println("Cual es la hora de entrada?");
-                                String horaE=sc.next();
+                                String horaE = sc.next();
                                 System.out.println("Cual es la hora de salida?");
-                                String horaS=sc.next();
+                                String horaS = sc.next();
                                 System.out.println("Que fecha inicio su trabajo");
-                                String fechainicio=sc.next();
-                                return new Empleado_Carga(horaE,horaS,fechainicio,sueldo,nombre, id, edad, altura, peso, residencia);
+                                String fechainicio = sc.next();
+                                return new Empleado_Carga(horaE, horaS, fechainicio, sueldo, nombre, id, edad, altura, peso, residencia);
                         }
                     } while (true);
             }
@@ -172,6 +233,23 @@ public class Lab4_Iliana_Leonardo {
         int numero = sc.nextInt();
 
         return new Producto(vidautil, fechaemision, precio, tamano, descripcion, nombre, numero);
+    }
+
+    public static void validarEdad(int años) throws Excepcion {
+        if (años < 18) {
+            throw new Excepcion("Debe ser mayor a 18");
+        }
+    }
+
+    public static void validarID(String ID) throws Exception {
+        String numeros = "";
+        for (int i = 0; i < 4; i++) {
+            numeros += ID.charAt(i);
+        }
+        if (!"0801".equals(numeros)) {
+            throw new Exception("El ID ingresado no es de Francisco Morazan");
+        }
+
     }
 
 }
