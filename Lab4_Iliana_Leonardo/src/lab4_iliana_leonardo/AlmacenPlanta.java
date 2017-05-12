@@ -17,6 +17,8 @@ public class AlmacenPlanta extends Almacenes{
         super(p, tamaño, altura);
         this.numeroPlanta = numeroPlanta;
     }
+    
+    
 
     public int getNumeroPlanta() {
         return numeroPlanta;
@@ -29,6 +31,47 @@ public class AlmacenPlanta extends Almacenes{
     @Override
     public String toString() {
         return super.toString()+"AlmacenPlanta{" + "numeroPlanta=" + numeroPlanta + '}';
+    }
+
+    @Override
+    /*public String[][] CifradoRiel(String clave) {
+        
+        
+    }*/
+
+    //@Override
+    public String[][] CifradoTransposicion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int ConversionBinario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public char CifradoVigenere() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public char Posiciones() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int[][] EnciptacionMatrcices() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public char DeclaracionAlfabeto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String[][] CifradoRiel() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author iliana
  */
-public class Almacenes {
+public abstract class Almacenes {
     private Producto p;
     private double tamaño;
     private double altura;
@@ -64,6 +64,14 @@ public class Almacenes {
         this.c = c;
     }
 
+    public abstract String [][] CifradoRiel();
+    public abstract String [][] CifradoTransposicion();
+    public abstract int ConversionBinario();
+    public abstract char CifradoVigenere();
+    public abstract char Posiciones();
+    public abstract int [][] EnciptacionMatrcices();
+    public abstract char DeclaracionAlfabeto();
+    
     @Override
     public String toString() {
         return "Almacenes{" + "p=" + p + ", tama\u00f1o=" + tamaño + ", altura=" + altura + ", e=" + e + ", c=" + c + '}';
