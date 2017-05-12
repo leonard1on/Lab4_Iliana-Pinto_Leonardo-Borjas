@@ -5,6 +5,8 @@
  */
 package lab4_iliana_leonardo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author iliana
@@ -13,6 +15,55 @@ public class Almacenes {
     private Producto p;
     private double tamaño;
     private double altura;
+    ArrayList <Empleado> e = new ArrayList();
+    ArrayList <Cliente> c = new ArrayList();
+
+    public Almacenes(Producto p, double tamaño, double altura) {
+        this.p = p;
+        this.tamaño = tamaño;
+        this.altura = altura;
+    }
+
+    public Producto getP() {
+        return p;
+    }
+
+    public void setP(Producto p) {
+        this.p = p;
+    }
+
+    public double getTamaño() {
+        return tamaño;
+    }
+
+    public void setTamaño(double tamaño) {
+        this.tamaño = tamaño;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public ArrayList<Empleado> getE() {
+        return e;
+    }
+
+    public void setE(ArrayList<Empleado> e) {
+        this.e = e;
+    }
+
+    public ArrayList<Cliente> getC() {
+        return c;
+    }
+
+    public void setC(ArrayList<Cliente> c) {
+        this.c = c;
+    }
+    
     
     
 }

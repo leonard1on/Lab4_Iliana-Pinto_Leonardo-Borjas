@@ -14,14 +14,14 @@ import java.util.Date;
  */
 public class Cliente extends Persona{
     private double dinero;
-    private Date primercompra;
-    private ArrayList<Producto> producto=new ArrayList();
+    private String primercompra;
+    private ArrayList<Producto> producto = new ArrayList();
 
     public Cliente() {
     }
 
     
-    public Cliente(double dinero, Date primercompra, String nombre, String id, int edad, double altura, double peso, String residencia) {
+    public Cliente(double dinero, String primercompra, String nombre, String id, int edad, double altura, double peso, String residencia) {
         super(nombre, id, edad, altura, peso, residencia);
         this.dinero = dinero;
         this.primercompra = primercompra;
@@ -35,11 +35,11 @@ public class Cliente extends Persona{
         this.dinero = dinero;
     }
 
-    public Date getPrimercompra() {
+    public String getPrimercompra() {
         return primercompra;
     }
 
-    public void setPrimercompra(Date primercompra) {
+    public void setPrimercompra(String primercompra) {
         this.primercompra = primercompra;
     }
 

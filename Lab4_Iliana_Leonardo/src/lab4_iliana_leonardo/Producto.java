@@ -13,14 +13,14 @@ import java.util.Date;
  */
 public class Producto {
     private String vidaUtil;
-    private Date fecha;
+    private String fecha;
     private double precio;
     private int tamaño;
     private String descripcion;
     private String nombre;
     private int numero;
 
-    public Producto(String vidaUtil, Date fecha, double precio, int tamaño, String descripcion, String nombre, int numero) {
+    public Producto(String vidaUtil, String fecha, double precio, int tamaño, String descripcion, String nombre, int numero) {
         this.vidaUtil = vidaUtil;
         this.fecha = fecha;
         this.precio = precio;
@@ -38,11 +38,11 @@ public class Producto {
         this.vidaUtil = vidaUtil;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
