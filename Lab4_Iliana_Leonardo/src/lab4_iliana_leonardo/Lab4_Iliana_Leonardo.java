@@ -13,11 +13,13 @@ import java.util.Scanner;
  */
 public class Lab4_Iliana_Leonardo {
 
+    static Scanner sc = new Scanner(System.in);
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner sc = new Scanner (System.in);
+
         do {
             System.out.println("1. Agregar almacen");
             System.out.println("2. Agregar persona");
@@ -31,11 +33,21 @@ public class Lab4_Iliana_Leonardo {
                     System.out.println("3. Almacenes de plataforma");
                     System.out.println("4. Almacenes temporales");
                     break;
+                case 2:
+                    ;
                 default:
                     throw new AssertionError();
             }
         } while (true);
-        
+
     }
-    
+
+    public static Persona empleado() {
+        System.out.println("Creacion de empleado\n"
+                + "Cual es el nombre del empleado");
+        String nombre;
+        
+        return new Empleado();
+    }
+
 }

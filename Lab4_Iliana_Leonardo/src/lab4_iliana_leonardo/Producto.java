@@ -5,8 +5,6 @@
  */
 package lab4_iliana_leonardo;
 
-import java.util.Date;
-
 /**
  *
  * @author iliana
