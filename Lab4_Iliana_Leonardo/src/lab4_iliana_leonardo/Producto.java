@@ -10,7 +10,7 @@ package lab4_iliana_leonardo;
  * @author iliana
  */
 public class Producto {
-    private String vidaUtil;
+    private int vidaUtil;
     private String fecha;
     private double precio;
     private int tamaño;
@@ -18,7 +18,7 @@ public class Producto {
     private String nombre;
     private int numero;
 
-    public Producto(String vidaUtil, String fecha, double precio, int tamaño, String descripcion, String nombre, int numero) {
+    public Producto(int vidaUtil, String fecha, double precio, int tamaño, String descripcion, String nombre, int numero) {
         this.vidaUtil = vidaUtil;
         this.fecha = fecha;
         this.precio = precio;
@@ -28,11 +28,11 @@ public class Producto {
         this.numero = numero;
     }
 
-    public String getVidaUtil() {
+    public int getVidaUtil() {
         return vidaUtil;
     }
 
-    public void setVidaUtil(String vidaUtil) {
+    public void setVidaUtil(int vidaUtil) {
         this.vidaUtil = vidaUtil;
     }
 
