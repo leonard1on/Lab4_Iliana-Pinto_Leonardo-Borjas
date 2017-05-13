@@ -15,6 +15,10 @@ import java.util.Scanner;
 public class Temporal {
 
     static Scanner sc = new Scanner(System.in);
+    
+    public void m (){
+        System.out.println("");
+    }
 
     public void metodo() {
         System.out.println("Ingrese el tamaño en metros");

@@ -29,7 +29,7 @@ public class AlmacenPlataforma extends Almacenes{
 
     @Override
     public String toString() {
-        return "AlmacenPlataforma{" + "c=" + c + '}';
+        return super.toString()+"AlmacenPlataforma{" + "c=" + c + '}';
     }
 
     @Override

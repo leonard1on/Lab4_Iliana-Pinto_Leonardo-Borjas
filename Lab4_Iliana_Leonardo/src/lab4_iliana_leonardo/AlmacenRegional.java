@@ -28,7 +28,7 @@ public class AlmacenRegional extends Almacenes{
 
     @Override
     public String toString() {
-        return "AlmacenRegional{" + "departamento=" + departamento + '}';
+        return super.toString()+"AlmacenRegional{" + "departamento=" + departamento + '}';
     }
 
     @Override
