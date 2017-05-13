@@ -22,6 +22,7 @@ public class Lab4_Iliana_Leonardo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        int opcion=0;
         ArrayList<Persona> clientes = new ArrayList();
         ArrayList<Persona> empleados = new ArrayList();
         ArrayList<Producto> productos = new ArrayList();
@@ -37,8 +38,8 @@ public class Lab4_Iliana_Leonardo {
                     + "8. Eliminar Empleado\n"
                     + "9. Eliminar Producto\n"
                     + "10. Reportes"
-                    + "");
-            int opcion = sc.nextInt();
+                    + "11. Salir");
+            opcion = sc.nextInt();
             switch (opcion) {
                 case 1:
                     System.out.println("Ingrese el tamaño en metros");
@@ -97,16 +98,33 @@ public class Lab4_Iliana_Leonardo {
                             }
                             break;
                         case 4:
-                            AlmaceneTemporal at=new AlmaceneTemporal(new Producto(), tamaño, altura);
+                            AlmaceneTemporal at = new AlmaceneTemporal(new Producto(), tamaño, altura);
                             for (Producto p : productos) {
                                 System.out.println(productos);
                             }
                             System.out.println("Que producto quiere agregarle?");
-                            int espacio=sc.nextInt();
-                            if (espacio<productos.size()) {
-                                ((AlmaceneTemporal)almacen.get(espacio)).getPro().add(productos.get(espacio));
-                            }
+                            int espacio = sc.nextInt();
+                            if (espacio < productos.size()) {
+                                ((AlmaceneTemporal) almacen.get(espacio)).getPro().add(productos.get(espacio));
 
+                                for (Persona cliente : clientes) {
+                                    System.out.println(clientes.indexOf(cliente) + " " + cliente);
+                                }
+                                System.out.println("Que cliente desea agregar?");
+                                espacio = sc.nextInt();
+                                if (espacio < clientes.size()) {
+                                    ((AlmaceneTemporal) almacen.get(espacio)).getC().add((Cliente)clientes.get(espacio));
+                                    
+                                    for (Persona empleado : empleados) {
+                                        System.out.println(empleados.indexOf(empleado)+" "+empleado);
+                                    }
+                                    System.out.println("Que empleado desea agregar?");
+                                    espacio=sc.nextInt();
+                                    if (espacio<empleados.size()) {
+                                        ((AlmaceneTemporal) almacen.get(espacio)).getE().add((Empleado)empleados.get(espacio));
+                                    }
+                                }
+                            }
                     }
                     break;
                 case 2:
@@ -127,50 +145,50 @@ public class Lab4_Iliana_Leonardo {
                     productos.add(producto());
                     break;
                 case 4:
-                    clientes=modcliente(clientes, productos);
+                    clientes = modcliente(clientes, productos);
                     break;
                 case 5:
-                    empleados=modempleado(empleados);
+                    empleados = modempleado(empleados);
                     break;
                 case 6:
-                    productos=modproducto(productos);
+                    productos = modproducto(productos);
                     break;
                 case 7:
-                    clientes=removercliente(clientes);
+                    clientes = removercliente(clientes);
                     break;
                 case 8:
-                    empleados=removerempleado(empleados);
+                    empleados = removerempleado(empleados);
                     break;
                 case 9:
-                    productos=removerproducto(productos);
+                    productos = removerproducto(productos);
                     break;
                 case 10:
                     System.out.println("Reportes!!");
-                    
+
                     System.out.println("Productos");
                     for (Producto pro : productos) {
-                        System.out.println(productos.indexOf(pro)+" "+pro);
+                        System.out.println(productos.indexOf(pro) + " " + pro);
                     }
-                    
+
                     System.out.println("Almacenes");
                     for (Almacenes al : almacen) {
-                        System.out.println(almacen.indexOf(al)+" "+al);
+                        System.out.println(almacen.indexOf(al) + " " + al);
                     }
-                    
+
                     System.out.println("Clientes");
                     for (Persona cliente : clientes) {
-                        System.out.println(clientes.indexOf(cliente)+" "+cliente);
+                        System.out.println(clientes.indexOf(cliente) + " " + cliente);
                     }
-                    
+
                     System.out.println("Empleados");
                     for (Persona empleado : empleados) {
-                        System.out.println(empleados.indexOf(empleado)+" "+empleado);
+                        System.out.println(empleados.indexOf(empleado) + " " + empleado);
                     }
-                    
+
                 default:
-                    throw new AssertionError();
+                    break;
             }
-        } while (true);
+        } while (opcion!=11);
 
     }
 
@@ -385,8 +403,8 @@ public class Lab4_Iliana_Leonardo {
             clientes.get(espacio).setAltura(altura);
             clientes.get(espacio).setPeso(peso);
             clientes.get(espacio).setResidencia(residencia);
-            ((Cliente)clientes.get(espacio)).setDinero(dinero);
-            ((Cliente)clientes.get(espacio)).setPrimercompra(fecha);
+            ((Cliente) clientes.get(espacio)).setDinero(dinero);
+            ((Cliente) clientes.get(espacio)).setPrimercompra(fecha);
             do {
                 for (Producto p : productos) {
                     System.out.println(productos.indexOf(p) + " " + p);
@@ -394,7 +412,7 @@ public class Lab4_Iliana_Leonardo {
                 System.out.println("Cual producto ha comprado?");
                 int espacio2 = sc.nextInt();
                 if (espacio2 < productos.size()) {
-                    clientes.get(espacio).getProducto().add(productos.get(espacio2));
+                    ((Cliente) clientes.get(espacio)).getProducto().add(productos.get(espacio2));
                 }
                 System.out.println("Desea agregar otro producto? s/n");
                 resp = sc.next().charAt(0);
@@ -487,6 +505,5 @@ public class Lab4_Iliana_Leonardo {
         }
         return empleados;
     }
-
 
 }
