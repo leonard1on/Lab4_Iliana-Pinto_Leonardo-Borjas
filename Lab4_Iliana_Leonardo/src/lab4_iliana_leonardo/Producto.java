@@ -10,6 +10,7 @@ package lab4_iliana_leonardo;
  * @author iliana
  */
 public class Producto {
+
     private int vidaUtil;
     private String fecha;
     private double precio;
@@ -17,6 +18,9 @@ public class Producto {
     private String descripcion;
     private String nombre;
     private int numero;
+
+    public Producto() {
+    }
 
     public Producto(int vidaUtil, String fecha, double precio, int tamaño, String descripcion, String nombre, int numero) {
         this.vidaUtil = vidaUtil;
@@ -88,7 +92,5 @@ public class Producto {
     public String toString() {
         return "Producto{" + "vidaUtil=" + vidaUtil + ", fecha=" + fecha + ", precio=" + precio + ", tama\u00f1o=" + tamaño + ", descripcion=" + descripcion + ", nombre=" + nombre + ", numero=" + numero + '}';
     }
-    
-    
-            
+
 }
